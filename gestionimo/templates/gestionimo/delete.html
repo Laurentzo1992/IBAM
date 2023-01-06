@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div>
+
+        <h4> Supression du locataire </h4>
+
+        <h6>Etes-vous sûr de vouloir supprimer le Type : {{ locataire.nom }} ?</h6>
+  
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Confirmer" style= "font-size: 15px;">
+            <a href="{% url 'index' %}" title="Annuler" style= "font-size: 15px;">
+              Annuler
+            </a>
+        </form>
+</div>
+{% endblock content %}

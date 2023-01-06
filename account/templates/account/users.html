@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+  {% block content %}
+
+        <h1>
+          Listes des utilisateurs
+        </h1>
+  
+
+  <table>
+    <tr>
+      <td>Username</td>
+      <td>Nom</td>
+      <td>Prenom</td>
+      <td>Photo</td>
+     
+     
+    </tr>
+    {% for user_sigle in user_all %}
+    <tr>
+      <td>{{user_sigle.username}}</td>
+      <td>{{user_sigle.name}}</td>
+      <td>{{user_sigle.first_name}}</td>
+      <td><img src="{{user_sigle.profile_photo.url}}" alt="photo de profile" style="width: 5%; height: 5%"></td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  {% endblock content %}
+
+
+  

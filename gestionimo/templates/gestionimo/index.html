@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+
+  {% block content %}
+
+  <table>
+    <tr>
+      <td>
+        <h1>
+          Listes des Locataires
+        </h1>
+      </td>
+
+      <td></td><td></td><td></td>
+
+      <td>
+          <a href="{% url 'create_locataire' %}" title="Ajouter">
+            Ajouter
+          </a>
+      </td>
+    </tr>
+  <table>
+
+
+  <table>
+    <tr>
+      <td>Nom</td>
+      <td>Prenom</td>
+      <td>Age</td>
+      <td>Loyé</td>
+      <td>Situé</td>
+      <td>Cout</td>
+      <td>Type</td>
+      <td>Suprimer</td>
+      <td>Modifier</td>
+    </tr>
+    {% for locataire in locataires %}
+    <tr>
+      <td>{{locataire.nom}}</td>
+      <td>{{locataire.prenom}}</td>
+      <td>{{locataire.age}}</td>
+      <td>{{locataire.loue}}</td>
+      <td>{{locataire.loue.adresse}}</td>
+      <td>{{locataire.loue.price}}</td>
+      <td>{{locataire.loue.type.libelle}}</td>
+      <td>
+        <a href="{% url 'delete' locataire.id %}" title="Supprimer">
+          Supprimer
+        </a>
+      </td>
+
+      <td>
+        <a href="{% url 'update' locataire.id %}" title="Modifier">
+          Modifier
+        </a>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+
+  {% for message in messages %}
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    {% if message.tags == 'error' %}
+    <script>
+         var m = "{{ message }}";
+          swal("Denied !", "Enter your data correctly.", "error")
+    </script>
+          {% elif message.tags == 'success' %}
+    <script>
+          var m = "{{ message }}";
+          swal("Perfect !", m, "success")
+    </script>
+    {% endif %}   
+{% endfor%}
+  {% endblock content %}
+
+
+  
