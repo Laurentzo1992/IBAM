@@ -3,6 +3,7 @@ from django.conf import settings
 from django.shortcuts import redirect, render
 from . import forms
 from django.contrib.auth import login, authenticate, logout, get_user_model
+from django.contrib.auth.decorators import login_required
 User = get_user_model()
 
 def login_page(request):
@@ -40,7 +41,6 @@ def logout_user(request):
     return redirect('login_page')
 
 
-
 def register(request):
     #crée une instance du formulaire
     form = forms.RegisterForm()
@@ -62,3 +62,4 @@ def register(request):
 def users(request):
     user_all = User.objects.all()
     return render(request, 'account/users.html', {"user_all":user_all})
+

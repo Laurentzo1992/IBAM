@@ -30,6 +30,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "gestionimo",
     "account",
+    "phone_field",
+    "phonenumber_field",
 ]
 
 MIDDLEWARE = [
@@ -138,3 +140,8 @@ AUTH_USER_MODEL = 'account.User'
 LOGIN_URL = 'login_page'
 
 LOGIN_REDIRECT_URL = 'index'
+
+
+PHONENUMBER_DEFAULT_FORMAT = "INTERNATIONAL"
+PHONENUMBER_DB_FORMAT = "NATIONAL"
+PHONENUMBER_DEFAULT_REGION = "BF"

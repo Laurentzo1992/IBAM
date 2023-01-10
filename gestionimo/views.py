@@ -3,13 +3,18 @@ from gestionimo.models import Locataire
 from gestionimo.forms import LocataireForm
 from  django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+
 
 
 @login_required
 def index(request):
     #Recupéré et affiché les données
     locataires = Locataire.objects.all()
-    return render(request, 'gestionimo/index.html', {"locataires":locataires})
+    paginator = Paginator(locataires, 4)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'gestionimo/index.html', {"page_obj":page_obj})
 
 @login_required
 def create_locataire(request):

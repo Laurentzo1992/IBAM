@@ -12,8 +12,9 @@
     </head>
     <body>
 
-        <h1>Gestion immobilière</h1>
+        
         {%  if user.is_authenticated %}
+        <h1><a href="{% url 'index' %}">Gestion immobilière</a></h1>
                   <p>Vous êtes connecté en tant que {{ request.user }}. 
                     <a href="{% url 'logout' %}">Se déconnecter</a>
                     <h5>Voir les <a href="{% url 'users' %}">utilisateurs</a></h5>
