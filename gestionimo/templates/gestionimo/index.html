@@ -22,16 +22,17 @@
   <table>
 
 
-  <table>
+  <table border="1">
     <tr>
       <td>Nom</td>
       <td>Prenom</td>
       <td>Age</td>
+      <td>Téléphone</td>
       <td>Loyé</td>
+      <td>Type</td>
       <td>Situé</td>
       <td>Cout</td>
-      <td>Type</td>
-      <td>Téléphone</td>
+      
       <td>Date Location</td>
       <td>Suprimer</td>
       <td>Modifier</td>
@@ -41,11 +42,11 @@
       <td>{{locataire.nom}}</td>
       <td>{{locataire.prenom}}</td>
       <td>{{locataire.age}}</td>
+      <td>{{locataire.phone_number}}</td>
       <td>{{locataire.loue}}</td>
+      <td>{{locataire.loue.type.libelle}}</td>
       <td>{{locataire.loue.adresse}}</td>
       <td>{{locataire.loue.price}}</td>
-      <td>{{locataire.loue.type.libelle}}</td>
-      <td>{{locataire.phone_number}}</td>
       <td>{{locataire.date_location}}</td>
       <td>
         <a href="{% url 'delete' locataire.id %}" title="Supprimer">
